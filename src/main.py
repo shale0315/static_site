@@ -2,6 +2,7 @@ from textnode import TextNode,TextType
 from htmlnode import HTMLNode, LeafNode, ParentNode
 from block_md import *
 from inline_md import *
+from copy_src import *
 
 def main():
     # test_text = TextNode("dummy text", TextType.BOLD, "www.dummy.test")
@@ -52,14 +53,14 @@ def main():
     # text = "This is **text** with an *italic* word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
     # print(text_to_textnodes(text))
 
-    markdown_content = """# This is a heading
+    # markdown_content = """# This is a heading
 
-    This is a paragraph of text. It has some **bold** and *italic* words inside of it.
+    # This is a paragraph of text. It has some **bold** and *italic* words inside of it.
 
-    * This is the first list item in a list block
-    * This is a list item
-    * This is another list item"""
-    print(markdown_to_blocks(markdown_content))
+    # * This is the first list item in a list block
+    # * This is a list item
+    # * This is another list item"""
+    # print(markdown_to_blocks(markdown_content))
 
     # l = ['    This is a paragraph of text. It has some **bold** and *italic* words inside of it.', '   and this too ', ]
     # for i in range(len(l)):
@@ -69,4 +70,6 @@ def main():
 
     # content = markdown_to_blocks(markdown_content)
     # print(block_to_block(content))
+
+    deltree_and_copy()
 main()
