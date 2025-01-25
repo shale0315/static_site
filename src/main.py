@@ -4,6 +4,7 @@ from block_md import *
 from inline_md import *
 from copy_src import *
 from extract_html import extract_title
+from gen_page import generate_page
 
 def main():
     # test_text = TextNode("dummy text", TextType.BOLD, "www.dummy.test")
@@ -72,13 +73,20 @@ def main():
     # content = markdown_to_blocks(markdown_content)
     # print(block_to_block(content))
 
-    # deltree_and_copy()
-    print(extract_title("""
-## Heading 2
+#     deltree_and_copy()
+#     print(extract_title("""
+# # Heading 2
 
-paragraph of text
+# paragraph of text
 
-> Quote block
-""")
-    )
+# > Quote block
+# """)
+#     )
+
+    from_path = "./content/index.md"
+    dest_path = "./public"
+    template_path = "./template.html"
+    deltree_and_copy()
+    generate_page(from_path, template_path, dest_path)
+
 main()

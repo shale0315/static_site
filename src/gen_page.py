@@ -11,15 +11,18 @@ def generate_page(from_path, template_path, dest_path):
         src_contents = f.read()
     with open(template_path, 'r') as f:
         template_contents = f.read()
+    # print(type(template_contents))
     src_md = markdown_to_html_node(src_contents)
     src_md_to_html = src_md.to_html()
-    title = extract_title(src_md_to_html)
-    template_contents.replace("{{TITLE}}", title)
-    template_contents.replace("{{CONTENTS}}", src_md_to_html)
+    title = extract_title(src_contents)
+    # print(type(title))
+    new_title = template_contents.replace("{{ Title }}", title)
+    new_contents = new_title.replace("{{ Content }}", src_md_to_html)
+    # print(new_contents)
     check_dest_path(dest_path)
     dest_file = os.path.join(dest_path,"index.html")
-    with open(dest_path, 'w') as f:
-        f.write(template_contents)
+    with open(dest_file, 'w') as f:
+        f.write(new_contents)
     return dest_file
     
 def check_dest_path(dest_path):
