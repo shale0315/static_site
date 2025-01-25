@@ -22,4 +22,3 @@ def copy_src(base_src_dir,base_dest_dir):
             os.mkdir(dest_path)
             copy_src(src_path, dest_path)
 
-deltree_and_copy()

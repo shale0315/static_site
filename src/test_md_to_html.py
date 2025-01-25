@@ -1,6 +1,7 @@
 import unittest
 from block_md import *
 from inline_md import *
+from extract_html import extract_title
 
 class TestMarkdownToHTML(unittest.TestCase):
     def test_markdown_to_blocks(self):
@@ -142,6 +143,40 @@ this is paragraph text
             html,
             "<div><blockquote>This is a blockquote block</blockquote><p>this is paragraph text</p></div>",
         )
+    
+    def test_check_h1(self):
+        md1 = """
+#   This is an h1 heading
+
+## This is an h2 heading
+
+> This is a quote block
+
+This is paragraph test
+
+"""
+        md2 = """
+## This is an h2 heading
+
+# This is an h1 heading.
+
+> This is a quote block
+
+This is a paragraph test
+"""
+        md3 = """
+## Heading 2
+
+paragraph of text
+
+> Quote block
+"""
+        extraction1 = extract_title(md1)
+        extraction2 = extract_title(md2)
+        self.assertEqual(extraction1, "This is an h1 heading")
+        self.assertEqual(extraction2, "This is an h1 heading.")
+        with self.assertRaises(Exception) as cm:
+            extract_title(md3)
 
 
 if __name__ == "__main__":

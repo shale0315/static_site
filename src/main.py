@@ -3,6 +3,7 @@ from htmlnode import HTMLNode, LeafNode, ParentNode
 from block_md import *
 from inline_md import *
 from copy_src import *
+from extract_html import extract_title
 
 def main():
     # test_text = TextNode("dummy text", TextType.BOLD, "www.dummy.test")
@@ -71,5 +72,13 @@ def main():
     # content = markdown_to_blocks(markdown_content)
     # print(block_to_block(content))
 
-    deltree_and_copy()
+    # deltree_and_copy()
+    print(extract_title("""
+## Heading 2
+
+paragraph of text
+
+> Quote block
+""")
+    )
 main()
