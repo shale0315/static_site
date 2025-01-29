@@ -11,7 +11,7 @@ def deltree_and_copy():
         os.mkdir(base_dest_dir)
     return copy_src(base_src_dir,base_dest_dir)
             
-def copy_src(base_src_dir,base_dest_dir):
+def copy_src(base_src_dir, base_dest_dir):
     for item in os.listdir(base_src_dir):
         current_file = os.path.join(base_src_dir,item)
         if os.path.isfile(current_file):
@@ -21,4 +21,3 @@ def copy_src(base_src_dir,base_dest_dir):
             src_path = os.path.join(base_src_dir,item)
             os.mkdir(dest_path)
             copy_src(src_path, dest_path)
-

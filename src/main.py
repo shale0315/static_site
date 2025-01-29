@@ -4,7 +4,7 @@ from block_md import *
 from inline_md import *
 from copy_src import *
 from extract_html import extract_title
-from gen_page import generate_page
+from gen_page import generate_pages_recursive
 
 def main():
     # test_text = TextNode("dummy text", TextType.BOLD, "www.dummy.test")
@@ -83,10 +83,10 @@ def main():
 # """)
 #     )
 
-    from_path = "./content/index.md"
+    from_path = "./content"
     dest_path = "./public"
     template_path = "./template.html"
     deltree_and_copy()
-    generate_page(from_path, template_path, dest_path)
+    generate_pages_recursive(from_path, template_path, dest_path)
 
 main()

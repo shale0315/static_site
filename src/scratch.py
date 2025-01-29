@@ -1,5 +1,6 @@
 from textnode import TextType,TextNode
 from htmlnode import HTMLNode, LeafNode
+import os
 
 # print(TextType.__members__)
 
@@ -74,19 +75,30 @@ from htmlnode import HTMLNode, LeafNode
 # for i in len(s2):
     
     
-"# This is a heading"  -> <h1>This is a heading</h1>
-HTMLNode("<h>", "This is a heading")
+# "# This is a heading"  -> <h1>This is a heading</h1>
+# HTMLNode("<h>", "This is a heading")
 
-"## This is a heading"  -> <h2>This is a heading</h2>
+# "## This is a heading"  -> <h2>This is a heading</h2>
 
-* This is the first list item in a list block
-* This is a list item
-* This is another list item
+# * This is the first list item in a list block
+# * This is a list item
+# * This is another list item
 
-->
+# ->
 
-<ul>
-    <li>This is the first list item in a list block</li>
-    <li>This is a list item</li>
-    <li>This is another list item</li>
-</ul>
+# <ul>
+#     <li>This is the first list item in a list block</li>
+#     <li>This is a list item</li>
+#     <li>This is another list item</li>
+# </ul>
+
+item = "wundercop.xls"
+index = 0
+for char in item:
+    if char == ".":
+        break
+    else:
+        index += 1
+sans_extension = item[0:index]
+html_file = sans_extension + ".html"
+print(html_file)
