@@ -6,7 +6,7 @@ from copy_src import *
 from extract_html import extract_title
 from gen_page import generate_pages_recursive
 
-def main():
+# def main():
     # test_text = TextNode("dummy text", TextType.BOLD, "www.dummy.test")
     # print(test_text)
 
@@ -83,6 +83,7 @@ def main():
 # """)
 #     )
 
+def main():
     from_path = "./content"
     dest_path = "./public"
     template_path = "./template.html"
